@@ -1,20 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Api from '../../api';
 import Const from '../../utils/Const';
+import Card from '../../module/Card';
+import './index.scss'
 
 export default function FirstPage() {
     useEffect(() => {
-        console.log(Const.serverIp)
-        waterData()
     })
+    const [position, setPosition] = useState('left');
     const waterData = () => {
         Api.getWaterLevelData().then((res) => {
-            console.log(res)
+
         })
     }
+    const buttonClick = () => {
+        setPosition(position === 'left' ? 'right' : 'left');
+        console.log(position)
+    }
     return (
-        <div>
-            1111
+        <div className='first_page'>
+            <div className="left_style">
+                <Card position='left'></Card>
+                <Card position='left'></Card>
+                <Card position='left'></Card>
+            </div>
+            <div className='right_style'>
+                <Card position='right'></Card>
+                <Card position='right'></Card>
+                <Card position='right'></Card>
+            </div>
         </div>
+
     )
 }

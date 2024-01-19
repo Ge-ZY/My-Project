@@ -1,0 +1,14 @@
+$imgpath: '../../assest/images/';
+
+.module_card {
+    width: 400px;
+    height: 260px;
+}
+
+.left {
+    background: url($imgpath+'left-card3.png')no-repeat center center;
+}
+
+.right {
+    background: url($imgpath+'right-card3.png')no-repeat center center;
+}

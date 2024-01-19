@@ -8,8 +8,6 @@ export default class Root extends Component {
     }
     static contextType = ThemeContext;
     componentDidMount(): void {
-        console.log(this.context)
-        console.log(this)
     }
 
     render() {
