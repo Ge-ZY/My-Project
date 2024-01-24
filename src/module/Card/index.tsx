@@ -3,6 +3,7 @@ import './index.scss'
 
 interface Props {
     position?: any
+    margin_top?: any
 
 }
 interface State {
@@ -18,12 +19,11 @@ export default class Card extends Component<Props, State> {
         }
     }
     componentDidMount(): void {
-        console.log(this.props.position)
     }
     render() {
-        const { position } = this.props
+        const { position, margin_top } = this.props
         return (
-            <div className={`module_card ${position ? position : 'left'}`}>
+            <div className={`module_card ${position ? position : 'left'}`} style={{ marginTop: `${margin_top ? margin_top : '0'}` }}>
                 {position}
             </div>
         )

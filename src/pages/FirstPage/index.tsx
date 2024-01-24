@@ -21,13 +21,13 @@ export default function FirstPage() {
         <div className='first_page'>
             <div className="left_style">
                 <Card position='left'></Card>
-                <Card position='left'></Card>
-                <Card position='left'></Card>
+                <Card position='left' margin_top={'20px'}></Card>
+                <Card position='left' margin_top={'20px'}></Card>
             </div>
             <div className='right_style'>
                 <Card position='right'></Card>
-                <Card position='right'></Card>
-                <Card position='right'></Card>
+                <Card position='right' margin_top={'20px'}></Card>
+                <Card position='right' margin_top={'20px'}></Card>
             </div>
         </div>
 
