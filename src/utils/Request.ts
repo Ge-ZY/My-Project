@@ -12,4 +12,14 @@ export default class Request {
             })
         })
     }
+
+    public static async Post(url: string, params?: any) {
+        return new Promise((resolve, reject) => {
+            inner.get(url, { params }).then(res => {
+                resolve(res.data)
+            }).catch(err => {
+                reject(err)
+            })
+        })
+    }
 }

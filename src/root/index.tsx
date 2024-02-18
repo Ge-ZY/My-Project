@@ -5,6 +5,8 @@ import { transform } from 'typescript';
 import './index.scss'
 import MainIndex from './mainIndex';
 import SwitchSelect from './bottom';
+import { createBrowserRouter } from 'react-router-dom';
+import routes from '../routes';
 
 interface State {
     widthRatio: any
@@ -23,9 +25,14 @@ export default class Root extends Component<Props, State> {
             switchPage: 'firstPage'
         };
     }
+    private element: any = createBrowserRouter(routes)
     static contextType = ThemeContext;
     componentDidMount(): void {
         window.addEventListener('resize', this.handleResize);
+        console.log(this.context)
+    }
+    componentWillUnmount(): void {
+        window.removeEventListener('resize', this.handleResize);
     }
     //窗口自适应
     handleResize = () => {
@@ -45,8 +52,13 @@ export default class Root extends Component<Props, State> {
         const { widthRatio, heightRatio, switchPage } = this.state;
         return (
             <div className='root' style={{ transform: `scale(${widthRatio},${heightRatio})`, transformOrigin: '0% 0%' }}>
-                {MainIndex.initModuleClass(switchPage, this)}
-                <SwitchSelect pageClick={this.pageSwitch}></SwitchSelect>
+                <ThemeContext.Provider value='high'>
+                    {/* {MainIndex.initModuleClass(switchPage, this)} */}
+                    <div>
+                        {this.element}
+                    </div>
+                    <SwitchSelect pageClick={this.pageSwitch}></SwitchSelect>
+                </ThemeContext.Provider>
             </div>
         )
     }
